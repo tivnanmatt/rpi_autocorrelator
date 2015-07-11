@@ -1,0 +1,58 @@
+
+build/output.elf:     file format elf32-littlearm
+
+
+Disassembly of section .init:
+
+00008000 <_start>:
+    8000:	e59fc094 	ldr	ip, [pc, #148]	; 809c <wait2+0x1c>
+    8004:	e3a00001 	mov	r0, #1
+    8008:	e1a00900 	lsl	r0, r0, #18
+    800c:	e58c0004 	str	r0, [ip, #4]
+    8010:	e3a00000 	mov	r0, #0
+    8014:	e1a00a80 	lsl	r0, r0, #21
+    8018:	e58c0004 	str	r0, [ip, #4]
+    801c:	e3a00001 	mov	r0, #1
+    8020:	e1a00300 	lsl	r0, r0, #6
+    8024:	e58c0008 	str	r0, [ip, #8]
+    8028:	e3a00000 	mov	r0, #0
+    802c:	e1a00480 	lsl	r0, r0, #9
+    8030:	e58c0008 	str	r0, [ip, #8]
+    8034:	e3a00001 	mov	r0, #1
+    8038:	e1a00600 	lsl	r0, r0, #12
+    803c:	e58c0008 	str	r0, [ip, #8]
+
+00008040 <main>:
+    8040:	e3a06001 	mov	r6, #1
+    8044:	e1a06b86 	lsl	r6, r6, #23
+
+00008048 <wait_for_rpi1>:
+    8048:	e59c0034 	ldr	r0, [ip, #52]	; 0x34
+    804c:	e0000006 	and	r0, r0, r6
+    8050:	e3500000 	cmp	r0, #0
+    8054:	0afffffb 	beq	8048 <wait_for_rpi1>
+    8058:	e3a06001 	mov	r6, #1
+    805c:	e1a06806 	lsl	r6, r6, #16
+    8060:	e3a01014 	mov	r1, #20
+
+00008064 <blink>:
+    8064:	e58c6028 	str	r6, [ip, #40]	; 0x28
+    8068:	e59f0030 	ldr	r0, [pc, #48]	; 80a0 <wait2+0x20>
+
+0000806c <wait1>:
+    806c:	e2400001 	sub	r0, r0, #1
+    8070:	e3500000 	cmp	r0, #0
+    8074:	1afffffc 	bne	806c <wait1>
+    8078:	e58c601c 	str	r6, [ip, #28]
+    807c:	e59f001c 	ldr	r0, [pc, #28]	; 80a0 <wait2+0x20>
+
+00008080 <wait2>:
+    8080:	e2400001 	sub	r0, r0, #1
+    8084:	e3500000 	cmp	r0, #0
+    8088:	1afffffc 	bne	8080 <wait2>
+    808c:	e2411001 	sub	r1, r1, #1
+    8090:	e3510000 	cmp	r1, #0
+    8094:	1afffff2 	bne	8064 <blink>
+    8098:	eaffffe8 	b	8040 <main>
+    809c:	20200000 	.word	0x20200000
+    80a0:	000f4240 	.word	0x000f4240
