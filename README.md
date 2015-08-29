@@ -1,4 +1,5 @@
 # rpi_autocorrelator
+
 The results of a research project in which 2 Raspberry Pi (model B, original release) mini computer is used to collect a time series signal and perform an autocorrelation. 
 Code is presented AS IS for those interested in lowering expenses in DCS or other systems which require a correlator device.
 
@@ -17,6 +18,14 @@ A bare metal operating system is used on RPi1 because it results in a stable sig
 2) The operating system for RPi2 must be compiled and installed using standard methods. See tutorial here: http://www.valvers.com/open-software/raspberry-pi/step01-bare-metal-programming-in-cpt1/
 
 3) Compile and run "read_signal" on RPi2. This will send a signal to RPi1 to begin collection and transfer. This can take some time. The final result will be printed to the console of RPi2.
+
+Further details can be found here:
+
+http://www.mdpi.com/1424-8220/15/8/19709
+
+Whenever this code is used, please cite this work as
+
+Tivnan, M.; Gurjar, R.; Wolf, D.E.; Vishwanath, K.	High Frequency Sampling of TTL Pulses on a Raspberry Pi for Diffuse Correlation Spectroscopy Applications. Sensors 2015, 15, 19709-19722.
 
 Questions or comments can be submitted on github or via email at tivnan.m@husky.neu.edu
 
